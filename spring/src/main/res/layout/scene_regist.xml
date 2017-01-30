@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlt_start"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorBg"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="{Spring} "
+            android:textColor="#FFF"
+            android:textSize="35sp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlt_start"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tv_signIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textColor="@color/colorGrey"
+                android:textSize="30sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tv_signIn"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/tv_signIn"
+                android:text="Sign Up"
+                android:textColor="@color/colorGrey"
+                android:textSize="30sp"
+                />
+
+            <View
+                android:id="@+id/diver"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/tv_signUp"
+                android:layout_marginRight="90dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/colorGrey"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_login_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="@color/colorBg"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_reg_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/colorBg"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/edt_login_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input your phone number"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+
+                />
+
+            <EditText
+                android:id="@+id/edt_reg_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input your name"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_login_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/colorBg"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_reg_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="@color/colorBg"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/edt_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input your password"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+
+                />
+
+            <EditText
+                android:id="@+id/edt_reg_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="5"
+                android:hint="Input your phone number"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:id="@+id/btn_reg_smsCode"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:background="@color/colorBg"
+                android:text="SmsCode"
+                android:textColor="#FFF"
+                android:textSize="12sp"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_reg_smsCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SmsCode"
+                android:textColor="@color/colorBg"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/edt_reg_smsCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input SmsCode"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlt_end"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="#662D78B1"
+        >
+
+        <spr.dev.view.LoginLoadingView
+            android:id="@+id/login_view_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
