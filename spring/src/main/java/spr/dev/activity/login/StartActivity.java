@@ -48,7 +48,7 @@ public class StartActivity extends AppCompatActivity {
             public void run() {
                 ValueAnimator animator = ValueAnimator.ofInt(0x00000000, 0xffffffff);
                 animator.setEvaluator(new ArgbEvaluator());
-                animator.setDuration(2300);
+                animator.setDuration(500);
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {

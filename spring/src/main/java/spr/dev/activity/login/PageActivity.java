@@ -64,7 +64,8 @@ public class PageActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(PageActivity.this, LoginActivity.class);
+//                intent.setClass(PageActivity.this, LoginActivity.class);
+                intent.setClass(PageActivity.this, RegisterActivity.class);
                 sp.saveString("isFirstUse", "notFirst");
                 Log.e(TAG, "--- Set isFirstUse is ---" + sp.getStringByKey("isFirstUse"));
                 startActivity(intent);
