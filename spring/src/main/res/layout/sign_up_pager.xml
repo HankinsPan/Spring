@@ -5,33 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rlt_start"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorBg"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="{Spring} "
-            android:textColor="#FFF"
-            android:textSize="35sp"
-            />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rlt_start"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="180dp"
         android:orientation="vertical"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
@@ -43,10 +21,10 @@
             >
 
             <TextView
-                android:id="@+id/tv_signIn"
+                android:id="@+id/tv_signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="Sign Up"
                 android:textColor="@color/colorBg"
                 android:textSize="30sp"
                 />
@@ -61,12 +39,11 @@
             >
 
             <TextView
-                android:id="@+id/tv_login_phone"
+                android:id="@+id/tv_reg_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone"
+                android:text="Name"
                 android:textColor="@color/colorBg"
-
                 />
 
         </LinearLayout>
@@ -79,11 +56,11 @@
             >
 
             <EditText
-                android:id="@+id/edt_login_phone"
+                android:id="@+id/edt_reg_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:hint="Input your phone number"
+                android:hint="Input your name"
                 android:singleLine="true"
                 android:textColorHint="#99cccccc"
                 android:textSize="16sp"
@@ -98,10 +75,10 @@
             >
 
             <TextView
-                android:id="@+id/tv_login_password"
+                android:id="@+id/tv_reg_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="Phone"
                 android:textColor="@color/colorBg"
                 />
         </LinearLayout>
@@ -114,32 +91,80 @@
             >
 
             <EditText
-                android:id="@+id/edt_login_password"
-                android:layout_width="match_parent"
+                android:id="@+id/edt_reg_phone"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="5"
                 android:ellipsize="end"
-                android:hint="Input your password"
-                android:inputType="textPassword"
+                android:hint="Input your phone number"
                 android:singleLine="true"
                 android:textColorHint="#99cccccc"
                 android:textSize="16sp"
                 />
+
+            <Button
+                android:id="@+id/btn_reg_smsCode"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:background="@color/colorBg"
+                android:text="SmsCode"
+                android:textColor="#FFF"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_reg_smsCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SmsCode"
+                android:textColor="@color/colorBg"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/edt_reg_smsCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="Input SmsCode"
+                android:singleLine="true"
+                android:textColorHint="#99cccccc"
+                android:textSize="16sp"
+                />
+
         </LinearLayout>
 
     </LinearLayout>
 
-
     <RelativeLayout
-        android:id="@+id/rlt_end"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/ll_signTxt"
         android:layout_centerInParent="true"
-        android:background="#2D78B1"
+        android:background="@color/colorBg"
         >
 
         <spr.dev.view.LoginLoadingView
-            android:id="@+id/login_view_btn"
+            android:id="@+id/signView_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerInParent="true"/>
@@ -147,31 +172,3 @@
     </RelativeLayout>
 
 </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,8 +25,11 @@ public class LoginLoadingView extends View {
     public static final int STATUS_LOGIN = 0;
     //正在登录中
     public static final int STATUS_LOGGING = 1;
+    //正在注册中
+    public static final int STATUS_REGIST = 3;
     //登录成功
     public static final int STATUS_LOGIN_SUCCESS = 2;
+
 
     private int mWidth, mHeight;
     private Paint mPaint;
@@ -40,7 +43,9 @@ public class LoginLoadingView extends View {
     //成功Text的文案
     private String mSuccessText = "SUCCESS";
     //登录Text的文案
-    private String mLoginText = "SIGN UP";
+    private String mLoginText = "SIGN IN";
+    //注册Text的文案
+    private String mRegistText = "SIGN UP";
     //登录Text的alpha值
     private int mLoginTextAlpha;
 
@@ -81,6 +86,12 @@ public class LoginLoadingView extends View {
                         mPaint);
                 break;
 
+            case STATUS_REGIST:
+                canvas.drawText(mRegistText,
+                        (mWidth - getTextWidth(mLoginText)) / 2,
+                        (mHeight + getTextHeight(mLoginText)) / 2,
+                        mPaint);
+
             case STATUS_LOGGING:
                 canvas.drawText(mLoginText,
                         (mWidth - getTextWidth(mLoginText)) / 2,
@@ -119,13 +130,12 @@ public class LoginLoadingView extends View {
 
     /**
      * 设置状态
-     *
-     * @param status 状态
      */
     public void setStatus(int status) {
         mStatus = status;
         switch (status) {
             case STATUS_LOGIN:
+            case STATUS_REGIST:
                 break;
 
             case STATUS_LOGGING:
@@ -161,7 +171,9 @@ public class LoginLoadingView extends View {
      * 启动登录成功动画
      */
     private void startLoginSuccessAnim() {
-        ValueAnimator textXAnim = ValueAnimator.ofFloat(0, (mWidth - getTextWidth(mSuccessText)) / 2);
+        ValueAnimator textXAnim = ValueAnimator.ofFloat(0,
+                (mWidth - getTextWidth(mSuccessText)) / 2);
+
         textXAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

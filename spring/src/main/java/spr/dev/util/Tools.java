@@ -243,6 +243,16 @@ public class Tools {
     }
 
     /**
+     * 验证用户名
+     */
+    public static boolean valiUserName(String username) {
+        String regex = "([a-zA-Z0-9]{6,12})";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(username);
+        return m.matches();
+    }
+
+    /**
      * 检查身份证是 否合法,15位或18位(或者最后一位为X)
      */
     public static boolean validateIdCard(String idCard) {
@@ -355,5 +365,11 @@ public class Tools {
         }
     }
 
-
+    /**
+     * 判断验证吗是不是纯6为数字
+     */
+    public static boolean isSMSCodeValid(String smsCode) {
+        String regex = "^\\d{6}$";
+        return smsCode.matches(regex);
+    }
 }

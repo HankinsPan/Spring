@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relat_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlt_start"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorBg"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="{Spring} "
+            android:textColor="#FFF"
+            android:textSize="35sp"
+            />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_signPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        >
+
+    </android.support.v4.view.ViewPager>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/ll_signTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_signInTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="signIn / "
+                android:textColor="@color/colorBg"
+                android:textSize="14sp"
+                tools:ignore="ContentDescription"
+                />
+
+            <TextView
+                android:id="@+id/tv_signUpTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="signUp"
+                android:textColor="@color/colorGrey"
+                android:textSize="14sp"
+                tools:ignore="ContentDescription"
+                />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ll_signTxt"
+            android:layout_centerInParent="true"
+
+            >
+
+            <spr.dev.view.LoginLoadingView
+                android:id="@+id/login_view_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

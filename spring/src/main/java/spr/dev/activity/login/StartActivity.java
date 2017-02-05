@@ -1,14 +1,10 @@
 package spr.dev.activity.login;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ImageView;
 
 import spr.dev.MainActivity;
 import spr.dev.R;
@@ -24,44 +20,12 @@ public class StartActivity extends AppCompatActivity {
     Context context = StartActivity.this;
     SharedPreferencesUtil sp;
 
-    private ImageView iv_code_top;
-    private ImageView iv_code_acsl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        initView();
-        init();
-
-    }
-
-    private void initView() {
-        iv_code_top = (ImageView) findViewById(R.id.iv_code_top);
-        iv_code_acsl = (ImageView) findViewById(R.id.iv_code_acsl);
-    }
-
-    private void init() {
-        Handler mHandler = new Handler();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ValueAnimator animator = ValueAnimator.ofInt(0x00000000, 0xffffffff);
-                animator.setEvaluator(new ArgbEvaluator());
-                animator.setDuration(500);
-                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        int curValue = (int) animation.getAnimatedValue();
-                        iv_code_top.setImageAlpha(curValue);
-                    }
-                });
-                animator.start();
-
-                StartApp();
-            }
-        }, 2300);
-
+        StartApp();
     }
 
     private void StartApp() {
@@ -79,6 +43,13 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(StartActivity.this, LoginActivity.class);
                 Log.e(TAG, "--- USER_ID is empty,To LoginActivity ---");
+
+//                intent.setClass(StartActivity.this, RegisterActivity.class);
+//                Log.e(TAG, "--- USER_ID is empty,To RegisterActivity ---");
+
+//                intent.setClass(StartActivity.this, SignActivity.class);
+//                Log.e(TAG, "--- USER_ID is empty,To SignActivity ---");
+
                 startActivity(intent);
                 finish();
             } else {

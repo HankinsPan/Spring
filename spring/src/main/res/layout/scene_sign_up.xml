@@ -37,9 +37,12 @@
             android:textColor="@color/colorBg"/>
 
         <EditText
+            android:id="@+id/edt_sName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hankins"/>
+            android:ellipsize="end"
+            android:singleLine="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"

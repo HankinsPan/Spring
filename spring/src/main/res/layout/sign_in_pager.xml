@@ -5,33 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rlt_start"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorBg"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="{Spring} "
-            android:textColor="#FFF"
-            android:textSize="35sp"
-            />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rlt_start"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="180dp"
         android:orientation="vertical"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
@@ -128,50 +106,22 @@
 
     </LinearLayout>
 
-
     <RelativeLayout
-        android:id="@+id/rlt_end"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/ll_signTxt"
         android:layout_centerInParent="true"
-        android:background="#2D78B1"
+        android:background="@color/colorBg"
         >
 
         <spr.dev.view.LoginLoadingView
-            android:id="@+id/login_view_btn"
+            android:id="@+id/signView_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 
+
 </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

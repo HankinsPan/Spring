@@ -12,10 +12,12 @@
         android:background="@color/colorBg"
         >
 
+        <!--android:id="@+id/signView_btn"-->
+
         <spr.dev.view.LoginLoadingView
             android:id="@+id/login_view"
-            android:layout_width="150dp"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_centerInParent="true"
             />
 
