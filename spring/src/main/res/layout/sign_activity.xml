@@ -79,6 +79,7 @@
                     android:textColor="@color/colorBg"
                     android:textColorHighlight="@color/colorBg"
                     android:textSize="16sp"
+                    android:text="15354872767"
                     />
 
             </android.support.design.widget.TextInputLayout>
@@ -102,7 +103,7 @@
                 >
 
                 <AutoCompleteTextView
-                    android:id="@+id/ato_smsCode"
+                    android:id="@+id/aot_smsCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="SmsCode"
@@ -113,6 +114,7 @@
                     android:textColor="@color/colorBg"
                     android:textColorHighlight="@color/colorBg"
                     android:textSize="16sp"
+                    android:text="654321"
                     />
 
             </android.support.design.widget.TextInputLayout>
