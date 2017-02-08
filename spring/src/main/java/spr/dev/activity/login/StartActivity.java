@@ -41,14 +41,10 @@ public class StartActivity extends AppCompatActivity {
             Log.e(TAG, "--- USER_ID is empty ---");
             if (isFirstUse.equals("notFirst")) {
                 Intent intent = new Intent();
-                intent.setClass(StartActivity.this, LoginActivity.class);
-                Log.e(TAG, "--- USER_ID is empty,To LoginActivity ---");
 
-//                intent.setClass(StartActivity.this, RegisterActivity.class);
-//                Log.e(TAG, "--- USER_ID is empty,To RegisterActivity ---");
 
-//                intent.setClass(StartActivity.this, SignActivity.class);
-//                Log.e(TAG, "--- USER_ID is empty,To SignActivity ---");
+                intent.setClass(StartActivity.this, SignActivity.class);
+                Log.e(TAG, "--- USER_ID is empty,To SignActivity ---");
 
                 startActivity(intent);
                 finish();

@@ -4,7 +4,6 @@
     android:id="@+id/relat_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -28,74 +27,138 @@
             />
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_signPager"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="180dp"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
         >
 
-    </android.support.v4.view.ViewPager>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        >
-
-
-        <LinearLayout
-            android:id="@+id/ll_signTxt"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp"
             >
 
             <TextView
-                android:id="@+id/tv_signInTxt"
+                android:id="@+id/tv_signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="signIn / "
+                android:text="Sign In"
                 android:textColor="@color/colorBg"
-                android:textSize="14sp"
-                tools:ignore="ContentDescription"
+                android:textSize="30sp"
                 />
 
-            <TextView
-                android:id="@+id/tv_signUpTxt"
-                android:layout_width="wrap_content"
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/aot_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBg"
+                    android:textColorHighlight="@color/colorBg"
+                    android:textSize="16sp"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_smsCode"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="signUp"
-                android:textColor="@color/colorGrey"
-                android:textSize="14sp"
-                tools:ignore="ContentDescription"
+                android:layout_marginRight="10dp"
+                android:layout_weight="5"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/ato_smsCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="SmsCode"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBg"
+                    android:textColorHighlight="@color/colorBg"
+                    android:textSize="16sp"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btn_smsCode"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="3"
+                android:background="@color/colorBg"
+                android:text="SMSCode"
+                android:textColor="#FFF"
                 />
 
         </LinearLayout>
 
 
-        <RelativeLayout
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@color/colorBg"
+        >
+
+        <spr.dev.view.SignView
+            android:id="@+id/signView_btn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/ll_signTxt"
-            android:layout_centerInParent="true"
-
-            >
-
-            <spr.dev.view.LoginLoadingView
-                android:id="@+id/login_view_btn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                />
-
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 
+
 </RelativeLayout>
+
+
+
+
+
+
+
+

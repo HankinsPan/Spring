@@ -19,14 +19,12 @@ import spr.dev.util.Tools;
  * Created by hanki on 2017/1/29.
  */
 
-public class LoginLoadingView extends View {
+public class SignView extends View {
 
     //正常状态
     public static final int STATUS_LOGIN = 0;
     //正在登录中
     public static final int STATUS_LOGGING = 1;
-    //正在注册中
-    public static final int STATUS_REGIST = 3;
     //登录成功
     public static final int STATUS_LOGIN_SUCCESS = 2;
 
@@ -44,17 +42,15 @@ public class LoginLoadingView extends View {
     private String mSuccessText = "SUCCESS";
     //登录Text的文案
     private String mLoginText = "SIGN IN";
-    //注册Text的文案
-    private String mRegistText = "SIGN UP";
     //登录Text的alpha值
     private int mLoginTextAlpha;
 
 
-    public LoginLoadingView(Context context, AttributeSet attrs) {
+    public SignView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LoginLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SignView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
@@ -85,12 +81,6 @@ public class LoginLoadingView extends View {
                         (mHeight + getTextHeight(mLoginText)) / 2,
                         mPaint);
                 break;
-
-            case STATUS_REGIST:
-                canvas.drawText(mRegistText,
-                        (mWidth - getTextWidth(mLoginText)) / 2,
-                        (mHeight + getTextHeight(mLoginText)) / 2,
-                        mPaint);
 
             case STATUS_LOGGING:
                 canvas.drawText(mLoginText,
@@ -135,7 +125,6 @@ public class LoginLoadingView extends View {
         mStatus = status;
         switch (status) {
             case STATUS_LOGIN:
-            case STATUS_REGIST:
                 break;
 
             case STATUS_LOGGING:
@@ -149,7 +138,7 @@ public class LoginLoadingView extends View {
     }
 
     /**
-     * 启动登录动画
+     * 加载动画
      */
     private void startLoggingAnim() {
         ValueAnimator animator = ValueAnimator.ofFloat(0, getTextWidth(mLoginText));
@@ -168,7 +157,7 @@ public class LoginLoadingView extends View {
     }
 
     /**
-     * 启动登录成功动画
+     * 录成功动画
      */
     private void startLoginSuccessAnim() {
         ValueAnimator textXAnim = ValueAnimator.ofFloat(0,

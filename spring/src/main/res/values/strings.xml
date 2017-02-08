@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Spring</string>
     <string name="action_settings">Settings</string>
+
+    <string name="hint_phone">Input your phone number</string>
+    <string name="hint_smsCode">Input your SmsCode</string>
 </resources>

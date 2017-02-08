@@ -1,10 +1,13 @@
 package spr.dev.adapter;
 
+
 import android.support.v4.view.PagerAdapter;
+
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+
 
 /**
  * Created by hanki on 2017/1/25.
@@ -13,7 +16,9 @@ import java.util.List;
 public class ViewPagerAdapter extends PagerAdapter {
     private List<View> mViewList;
 
-    public ViewPagerAdapter(List<View> viewList) {
+
+    public ViewPagerAdapter( List<View> viewList) {
+
         this.mViewList = viewList;
     }
 
