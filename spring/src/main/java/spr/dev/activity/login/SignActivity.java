@@ -214,6 +214,7 @@ public class SignActivity extends AppCompatActivity
 
     private void SendSmsCode() {
 
+
     }
 
     private void RunAnim(View view) {
