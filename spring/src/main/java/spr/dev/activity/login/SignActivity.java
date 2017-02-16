@@ -37,21 +37,15 @@ public class SignActivity extends AppCompatActivity
         implements View.OnClickListener {
     private static final String TAG = "SignActivity";
 
-    // 模拟用户信息
-    private static String i_Phone = "15354872767";
-    private static String i_SmsCode = "654321";
 
     SharedPreferencesUtil sp;
 
     private RelativeLayout mRelat;
-
     private Scene mSceneLogging;
 
     private AutoCompleteTextView aot_phone;
     private AutoCompleteTextView aot_smsCode;
     private Button btn_smsCode;
-
-
     /**
      * 验证码计时器
      */
@@ -76,9 +70,10 @@ public class SignActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_activity);
+
+
         initView();
         addListener();
-
     }
 
     private void initView() {
@@ -143,14 +138,14 @@ public class SignActivity extends AppCompatActivity
                         Intent intent = new Intent(SignActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
-                },5000);
+                }, 5000);
 
                 mRelat_live.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Finished();
                     }
-                },5200);
+                }, 5200);
             }
         });
 
@@ -171,11 +166,9 @@ public class SignActivity extends AppCompatActivity
             case R.id.btn_smsCode:
                 String uPhone = aot_phone.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(uPhone)
-                        && Tools.validatePhone(uPhone)
-                        && uPhone.equals(i_Phone)) {
-                    SendSmsCode();
-                    btn_smsCode.setText("59"+" s");
+                if (!TextUtils.isEmpty(uPhone) && Tools.validatePhone(uPhone)) {
+                    SendSmsCode(uPhone);
+                    btn_smsCode.setText("59" + " s");
                     timer.start();
                     btn_smsCode.setClickable(false);
                     btn_smsCode.setBackgroundColor(getResources().getColor(R.color.theme_blue_two));
@@ -191,15 +184,14 @@ public class SignActivity extends AppCompatActivity
                 String nPhone = aot_phone.getText().toString().trim();
                 String nSmsCode = aot_smsCode.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(nPhone)
-                        && Tools.validatePhone(nPhone)
-                        && nPhone.equals(i_Phone)) {
-                    if (!TextUtils.isEmpty(nSmsCode)
-                            && Tools.isSMSCodeValid(nSmsCode)
-                            && nSmsCode.equals(i_SmsCode)) {
-                        RunAnim(signViewBtn);
-                    }
+                if (!TextUtils.isEmpty(nPhone) && Tools.validatePhone(nPhone)) {
+                    if (!TextUtils.isEmpty(nSmsCode) && Tools.isSMSCodeValid(nSmsCode)) {
 
+                        checkSmsCode(nPhone, nSmsCode);
+
+                    } else {
+                        ShowToast.ColorToast(SignActivity.this, "smsCode is error", 1200);
+                    }
                 } else {
                     ShowToast.ColorToast(SignActivity.this, "phone number is error", 1200);
                     Log.e(TAG, "-- phone number is error --");
@@ -212,7 +204,17 @@ public class SignActivity extends AppCompatActivity
 
     }
 
-    private void SendSmsCode() {
+    private void SendSmsCode(String phone) {
+
+        Log.e(TAG, "-- get phone is -> --" + phone);
+
+
+    }
+
+
+    private void checkSmsCode(String phone, String smsCode) {
+        Log.e(TAG, "-- get phone is -> --" + phone);
+        Log.e(TAG, "-- get smsCode is -> --" + smsCode);
 
 
     }
@@ -265,8 +267,6 @@ public class SignActivity extends AppCompatActivity
         TransitionManager.go(mSceneLogging, new ChangeBounds()
                 .setDuration(mDuration)
                 .setInterpolator(new DecelerateInterpolator()));
-
     }
-
 
 }
