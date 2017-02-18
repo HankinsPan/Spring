@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
+    private RelativeLayout rlt_image;
     private RollPagerView pagerView;
 
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset <= -pagerView.getHeight() / 2) {
+                if (verticalOffset <= -rlt_image.getHeight() / 2) {
                     scrollFabhide(verticalOffset);
                 } else {
                     mColl.setTitle("");
@@ -98,6 +100,7 @@ public class MainActivity extends AppCompatActivity
     private void scrollFabhide(int verticalOffset) {
         float alpha = 2 - (float) (-verticalOffset / 270.1);
         float_btn.setAlpha(alpha);
+        pagerView.setAlpha(alpha);
     }
 
 
@@ -118,6 +121,7 @@ public class MainActivity extends AppCompatActivity
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
 
+        rlt_image = (RelativeLayout) findViewById(R.id.rlt_image);
         pagerView = (RollPagerView) findViewById(R.id.roll_view_pager);
     }
 
