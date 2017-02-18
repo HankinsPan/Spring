@@ -1,6 +1,8 @@
 package spr.dev;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -10,24 +12,28 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+
+import com.jude.rollviewpager.RollPagerView;
+import com.jude.rollviewpager.hintview.ColorPointHintView;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import spr.dev.adapter.RollPageAdapter;
 import spr.dev.adapter.ViewMainAdapter;
 import spr.dev.util.ShowToast;
 
 
 public class MainActivity extends AppCompatActivity
         implements Toolbar.OnMenuItemClickListener,
-        NavigationView.OnNavigationItemSelectedListener {
+        NavigationView.OnNavigationItemSelectedListener,
+        SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "MainActivity";
 
@@ -40,27 +46,32 @@ public class MainActivity extends AppCompatActivity
     private AppBarLayout appBarLayout;
     private Toolbar toolbar;
 
-//    private ImageView iv_title;
-    private RelativeLayout rlt_headImage;
-
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private FloatingActionButton float_btn;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+    private RollPagerView pagerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         initView();
+        rollPager();
         addListener();
+        initRefresh();
+
 
         setSupportActionBar(toolbar);
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset <= -rlt_headImage.getHeight()/2) {
+                if (verticalOffset <= -pagerView.getHeight() / 2) {
                     scrollFabhide(verticalOffset);
                 } else {
                     mColl.setTitle("");
@@ -80,7 +91,9 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+
     }
+
 
     private void scrollFabhide(int verticalOffset) {
         float alpha = 2 - (float) (-verticalOffset / 270.1);
@@ -93,9 +106,6 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
 
-//        iv_title = (ImageView) findViewById(R.id.iv_title);
-        rlt_headImage = (RelativeLayout) findViewById(R.id.rlt_headImage);
-
         toolbar_tab = (TabLayout) findViewById(R.id.toolbar_tab);
         main_vp = (ViewPager) findViewById(R.id.main_vp_container);
 
@@ -105,13 +115,34 @@ public class MainActivity extends AppCompatActivity
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         float_btn = (FloatingActionButton) findViewById(R.id.float_btn);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+
+        pagerView = (RollPagerView) findViewById(R.id.roll_view_pager);
     }
 
 
-    private void addListener() {
+    private void rollPager() {
+        pagerView.setPlayDelay(1500);
+        pagerView.setAnimationDurtion(800);
+        pagerView.setAdapter(new RollPageAdapter());
+        pagerView.setHintView(new ColorPointHintView(this,
+                Color.parseColor("#1976d2"), Color.WHITE));
+    }
 
+    private void addListener() {
         toolbar.setOnMenuItemClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
+        swipeRefreshLayout.setOnRefreshListener(this);
+
+    }
+
+    private void initRefresh() {
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.theme_blue_eight,
+                R.color.red,
+                R.color.colorThemeYellow,
+                R.color.green);
     }
 
     @Override
@@ -158,7 +189,6 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-//            super.onBackPressed();
             if (isState) {
                 isState = false;
                 ShowToast.ColorToast(MainActivity.this, "再次点击退出程序", 1200);
@@ -213,6 +243,27 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onRefresh() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                RefreshData();
+                // TODO: 2017/2/18 adapter notifyDataSetChanged at here
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1500);
+
+    }
+
+    private void RefreshData() {
+        // TODO: 2017/2/18 request more data at here
+//        ShowToast.ColorToast(MainActivity.this,"Load More Data",1200);
+    }
+
+
 }
 
 

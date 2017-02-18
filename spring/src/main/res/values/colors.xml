@@ -28,5 +28,76 @@
 
     <color name="text_alpha">#99AAAAAA</color>
 
+    <color name="white">#FCFCFC</color>
+    <color name="text_red">#FF6100</color>
+    <color name="br_color">#fff</color>
+    <color name="main_hint_text">#999</color>
+    <color name="main_red">#FF9900</color>
+    <color name="black">#000000</color>
+    <color name="gray">#b0b0b0</color>
+    <color name="green">#39C526</color>
+    <color name="green_text">#4CC317</color>
+    <color name="text_green">#9BBB59</color>
+    <color name="text_default">#77787B</color>
+    <color name="default_text">#BCBCBC</color>
+    <color name="notice_text_red">#E574E0</color>
+    <color name="find_default">#8B8B8B</color>
+    <color name="red">#ff0000</color>
+    <color name="dot_color">#ff0000</color>
+    <color name="white_bg">#ffffff</color>
+
+    <!-- 浅灰色 -->
+    <color name="general_text_color4">#d2d4d9</color>
+
+    <!-- 浅绿色 -->
+    <color name="general_green">#00ff00</color>
+    <color name="main_selected">#1daca5</color>
+
+    <!-- 紫色 -->
+    <color name="purple">#D05DC1</color>
+    <color name="report_line">#CCCCD0</color>
+    <color name="report_bg">#EFEFF5</color>
+
+    <!-- 黄色 -->
+    <color name="text_yellow">#DBC754</color>
+
+    <!-- 上传图片添加的颜色 -->
+    <color name="none_color">#00000000</color>
+    <color name="plugin_camera_black">#000000</color>
+    <color name="albumback">#E1E0DE</color>
+    <color name="memeber_divide">#01B9FF</color>
+
+    <!-- 橙色 -->
+    <color name="orange">#FDC36F</color>
+
+    <!-- light orange -->
+    <color name="main_orange">#FF6100</color>
+
+    <!-- 半透明 -->
+    <color name="general_touming_black">#78d2d4d9</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="main_item_tv">#ff58BE13</color>
+
+    <color name="qzone_omit_tv">#ffBBBBBB</color>
+    <color name="topic_omit_tv">#ffBBBBBB</color>
+
+    <color name="topic_user_name_tv">#ff84A2BC</color>
+    <color name="topic_user_location_tv">#ffBBBBBB</color>
+    <color name="topic_tag_tv">#ffEB9F7B</color>
+    <color name="topic_content_side_v">#ffEFEFEF</color>
+
+    <color name="topic_content_button_v">#ff97A4AF</color>
+
+    <color name="colorBottom">#146e6e</color>
+    <color name="colorThemeBlue">#0066cc</color>
+    <color name="colorThemeYellow">#EEEE00</color>
+    <color name="colorThemeRed">#EE2c2c</color>
+    <color name="colorThemeGreen">#008b45</color>
+
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBtn">#489Ef7</color>
+    <color name="colorBtnSingIn">#24e058</color>
+    <color name="colorLigin">#3498db</color>
 
 </resources>
