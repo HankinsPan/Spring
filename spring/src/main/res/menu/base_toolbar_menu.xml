@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
     <item
         android:id="@+id/action_ring"
         android:icon="@mipmap/ic_ring"
-        android:orderInCategory="80"
-        android:showAsAction="ifRoom"
-        android:title="Ring"/>
+        android:orderInCategory="60"
+        android:title="Ring"
+        app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_star"
-        android:icon="@mipmap/ic_star_half"
-        android:orderInCategory="90"
-        android:showAsAction="ifRoom"
-        android:title="Star"/>
-
-
-    <item
-        android:id="@+id/action_share"
-        android:icon="@mipmap/ic_share"
-        android:orderInCategory="100"
-        android:showAsAction="ifRoom"
-        android:title="Share"/>
+        android:id="@+id/action_idea"
+        android:icon="@mipmap/ic_idea"
+        android:orderInCategory="70"
+        android:title="Idea"
+        app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_setting"
+        android:id="@+id/action_set"
         android:icon="@mipmap/ic_setting"
-        android:orderInCategory="110"
-        android:showAsAction="never"
-        android:title="Setting"/>
+        android:orderInCategory="80"
+        android:title="setting"
+        app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/action_about"
+        android:icon="@mipmap/ic_about"
+        android:orderInCategory="90"
+        android:title="about"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_out"
+        android:icon="@mipmap/ic_loginout"
+        android:orderInCategory="100"
+        android:title="Login out"
+        app:showAsAction="ifRoom"/>
 
 </menu>

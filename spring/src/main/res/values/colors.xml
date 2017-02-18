@@ -24,4 +24,9 @@
     <color name="theme_blue_eight">#1565c0</color>
     <color name="theme_blue_nine">#0d47a1</color>
     <color name="theme_blue_ten">#283593</color>
+
+
+    <color name="text_alpha">#99AAAAAA</color>
+
+
 </resources>

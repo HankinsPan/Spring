@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Blog">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_github"
+                    android:icon="@mipmap/nav_github"
+                    android:title="Github"/>
+
+                <item
+                    android:id="@+id/nav_csdn"
+                    android:icon="@mipmap/nav_csdn"
+                    android:title="CSDN"/>
+
+                <item
+                    android:id="@+id/nav_jian"
+                    android:icon="@mipmap/nav_jian"
+                    android:title="简书"/>
+
+                <item
+                    android:id="@+id/nav_sgement"
+                    android:icon="@mipmap/nav_segmentfault"
+                    android:title="segmentfault"/>
+
+            </menu>
+        </item>
+
+    </group>
+
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/nav_others"
+                android:icon="@mipmap/nav_others"
+                android:title="Third Party"/>
+
+            <item
+                android:id="@+id/nav_dev"
+                android:icon="@mipmap/nav_dev"
+                android:title="Developer"/>
+        </menu>
+
+    </item>
+
+</menu>
