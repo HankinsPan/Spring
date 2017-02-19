@@ -16,10 +16,14 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.SaveCallback;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 
@@ -67,6 +71,17 @@ public class MainActivity extends AppCompatActivity
         addListener();
         initRefresh();
 
+        // 测试 SDK 是否正常工作的代码
+        AVObject testObject = new AVObject("TestObject");
+        testObject.put("words","Hello World!");
+        testObject.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                if(e == null){
+                    Log.e(TAG,"-*- success! -*-");
+                }
+            }
+        });
 
         setSupportActionBar(toolbar);
 

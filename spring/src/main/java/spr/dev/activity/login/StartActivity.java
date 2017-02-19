@@ -67,22 +67,22 @@ public class StartActivity extends AppCompatActivity {
     private void StartApp() {
         sp = new SharedPreferencesUtil(StartActivity.this, SP_Constant.SP_NAME);
 
-        String isLogin = sp.getStringByKey("login");
+        String Verify = sp.getStringByKey("Verify");
         String isFirstUse = sp.getStringByKey("isFirstUse");
 
-        Log.e(TAG, "-- isLogin is --" + isLogin);
+        Log.e(TAG, "-- Verify is --" + Verify);
         Log.e(TAG, "-- isFirstUse is --" + isFirstUse);
 
-        if (!isLogin.equals("yes")) {
+        if (!Verify.equals("Success")) {
             Log.e(TAG, "--- USER_ID is empty ---");
             if (isFirstUse.equals("notFirst")) {
                 Intent intent = new Intent();
 
-//                intent.setClass(StartActivity.this, SignActivity.class);
-//                Log.e(TAG, "--- USER_ID is empty,To SignActivity ---");
-
-                intent.setClass(StartActivity.this, MainActivity.class);
+                intent.setClass(StartActivity.this, SignActivity.class);
                 Log.e(TAG, "--- USER_ID is empty,To SignActivity ---");
+
+//                intent.setClass(StartActivity.this, MainActivity.class);
+//                Log.e(TAG, "--- USER_ID is empty,To MainActivity ---");
 
                 startActivity(intent);
                 finish();

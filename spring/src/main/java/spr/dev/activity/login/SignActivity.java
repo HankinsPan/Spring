@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -22,8 +23,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVMobilePhoneVerifyCallback;
+import com.avos.avoscloud.AVOSCloud;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.SignUpCallback;
+
 import spr.dev.MainActivity;
 import spr.dev.R;
+import spr.dev.constant.SP_Constant;
 import spr.dev.util.SharedPreferencesUtil;
 import spr.dev.util.ShowToast;
 import spr.dev.util.Tools;
@@ -70,7 +78,7 @@ public class SignActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_activity);
-
+        sp = new SharedPreferencesUtil(SignActivity.this, SP_Constant.SP_NAME);
 
         initView();
         addListener();
@@ -204,19 +212,75 @@ public class SignActivity extends AppCompatActivity
 
     }
 
-    private void SendSmsCode(String phone) {
-
+    private void SendSmsCode(final String phone) {
         Log.e(TAG, "-- get phone is -> --" + phone);
 
+        new AsyncTask<Void, Void, Void>() {
+            boolean res;
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    AVOSCloud.requestSMSCode(phone, "Spring", "注册登录", 10);
+                    res = true;
+                } catch (AVException e) {
+                    e.printStackTrace();
+                    res = false;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+
+                if (res) {
+                    Log.e(TAG, "-*- sendSucceed -*-");
+                    ShowToast.ColorToast(SignActivity.this, "-*- sendSucceed -*-", 1200);
+                } else {
+                    Log.e(TAG, "-*- sendFailed -*-");
+                    ShowToast.ColorToast(SignActivity.this, "-*- sendFailed -*-", 1200);
+                }
+            }
+        }.execute();
 
     }
 
 
-    private void checkSmsCode(String phone, String smsCode) {
+    private void checkSmsCode(final String phone, final String smsCode) {
         Log.e(TAG, "-- get phone is -> --" + phone);
         Log.e(TAG, "-- get smsCode is -> --" + smsCode);
 
+        final AVUser avUser = new AVUser();
 
+        AVOSCloud.verifySMSCodeInBackground(smsCode, phone, new AVMobilePhoneVerifyCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e == null) {
+                    Log.e(TAG, "-*- Verify Succeed -*- " + e);
+
+                    sp.saveString("Verify","Success");
+
+                    avUser.setUsername(phone);
+                    avUser.setPassword(smsCode);
+
+                    avUser.signUpInBackground(new SignUpCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            if (e == null) {
+                                Log.e(TAG, "-*- signUp Succeed -*- " + e);
+                            } else {
+                                Log.e(TAG, "-*- signUp Failed -*- " + e);
+                            }
+                        }
+                    });
+
+                    RunAnim(signViewBtn);
+                } else {
+                    Log.e(TAG, "-*- Verify Failed -*- " + e);
+                }
+            }
+        });
     }
 
     private void RunAnim(View view) {
@@ -226,9 +290,6 @@ public class SignActivity extends AppCompatActivity
         view.getLocationOnScreen(location);
         int x = location[0];
         int y = location[1];
-
-        Log.e(TAG, "-- x -- >" + x);
-        Log.e(TAG, "-- y -- >" + y);
 
         Animator anim = ViewAnimationUtils.createCircularReveal(mRelat,
                 x + signViewBtn.getWidth() / 2,
