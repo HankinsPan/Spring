@@ -1,5 +1,6 @@
 package spr.dev;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.avos.avoscloud.AVException;
@@ -30,6 +32,7 @@ import com.jude.rollviewpager.hintview.ColorPointHintView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import spr.dev.activity.publish.PublishActivity;
 import spr.dev.adapter.RollPageAdapter;
 import spr.dev.adapter.ViewMainAdapter;
 import spr.dev.util.ShowToast;
@@ -38,7 +41,8 @@ import spr.dev.util.ShowToast;
 public class MainActivity extends AppCompatActivity
         implements Toolbar.OnMenuItemClickListener,
         NavigationView.OnNavigationItemSelectedListener,
-        SwipeRefreshLayout.OnRefreshListener {
+        SwipeRefreshLayout.OnRefreshListener,
+        View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
@@ -73,12 +77,12 @@ public class MainActivity extends AppCompatActivity
 
         // 测试 SDK 是否正常工作的代码
         AVObject testObject = new AVObject("TestObject");
-        testObject.put("words","Hello World!");
+        testObject.put("words", "Hello World!");
         testObject.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-                if(e == null){
-                    Log.e(TAG,"-*- success! -*-");
+                if (e == null) {
+                    Log.e(TAG, "-*- success! -*-");
                 }
             }
         });
@@ -115,6 +119,11 @@ public class MainActivity extends AppCompatActivity
     private void scrollFabhide(int verticalOffset) {
         float alpha = 2 - (float) (-verticalOffset / 270.1);
         float_btn.setAlpha(alpha);
+        if (alpha <= 0.3) {
+            float_btn.setVisibility(View.GONE);
+        } else {
+            float_btn.setVisibility(View.VISIBLE);
+        }
         pagerView.setAlpha(alpha);
     }
 
@@ -154,14 +163,23 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
 
+        float_btn.setOnClickListener(this);
     }
 
-    private void initRefresh() {
-        swipeRefreshLayout.setColorSchemeResources(
-                R.color.theme_blue_eight,
-                R.color.red,
-                R.color.colorThemeYellow,
-                R.color.green);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.float_btn:
+                Intent intent = new Intent(MainActivity.this, PublishActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.top_to_bottom_in, R.anim.bottom_to_top_out);
+                break;
+
+            default:
+                break;
+
+        }
+
     }
 
     @Override
@@ -194,6 +212,16 @@ public class MainActivity extends AppCompatActivity
         }
         return true;
     }
+
+
+    private void initRefresh() {
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.theme_blue_eight,
+                R.color.red,
+                R.color.colorThemeYellow,
+                R.color.green);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -282,7 +310,11 @@ public class MainActivity extends AppCompatActivity
 //        ShowToast.ColorToast(MainActivity.this,"Load More Data",1200);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+    }
 }
 
 
