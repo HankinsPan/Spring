@@ -109,8 +109,8 @@
         android:background="@mipmap/iv_line"
         />
 
-    <RelativeLayout
-        android:id="@+id/rlt_pub_content"
+    <spr.dev.view.MyScrollView
+        android:id="@+id/scroll_pub_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/view_line"
@@ -134,6 +134,29 @@
             android:textScaleX="1.1"
             android:textSize="18sp"
             />
+
+    </spr.dev.view.MyScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/rlt_gridImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scroll_pub_content"
+        android:layout_marginTop="20dp"
+        >
+
+        <GridView
+            android:id="@+id/noScrollGridView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="3"
+            android:scrollbars="none"
+            >
+        </GridView>
 
     </RelativeLayout>
 

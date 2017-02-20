@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class PublishActivity extends AppCompatActivity
     private RelativeLayout rltPhoto;
     private RelativeLayout rltCamera;
 
+    private GridView gridView;
+
     private String wordLength;
 
 
@@ -43,11 +46,26 @@ public class PublishActivity extends AppCompatActivity
         setContentView(R.layout.activity_publish);
         SaveSoftkayboard.assistActivity(this);
 
+
         initView();
         addListener();
         initEvent();
         initBar();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        toolbar.setTitle("");
+        Log.e(TAG, "-- onResume --");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "-- onDestroy --");
+        this.finish();
     }
 
     private void initBar() {
@@ -58,13 +76,14 @@ public class PublishActivity extends AppCompatActivity
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 InputMethodManager imm = (InputMethodManager)
-                        getSystemService(INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(0,InputMethodManager.HIDE_NOT_ALWAYS);
+                        getSystemService(PublishActivity.this.INPUT_METHOD_SERVICE);
 
+                imm.hideSoftInputFromWindow(edtContent.getWindowToken(), 0);
+//                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 onBackPressed();
             }
+
         });
     }
 
@@ -77,6 +96,7 @@ public class PublishActivity extends AppCompatActivity
         rltPhoto = (RelativeLayout) findViewById(R.id.rlt_add_iv_photo);
         rltCamera = (RelativeLayout) findViewById(R.id.rlt_add_iv_camera);
 
+        gridView = (GridView) findViewById(R.id.noScrollGridView);
     }
 
     private void addListener() {
@@ -85,6 +105,7 @@ public class PublishActivity extends AppCompatActivity
     }
 
     private void initEvent() {
+
 
         edtContent.addTextChangedListener(new TextWatcher() {
             @Override
@@ -128,22 +149,11 @@ public class PublishActivity extends AppCompatActivity
 
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        toolbar.setTitle("");
-        Log.e(TAG, "-- onResume --");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.e(TAG, "-- onDestroy --");
-    }
-
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
+
         overridePendingTransition(R.anim.bottom_to_top_in, R.anim.top_to_bottom_out);
+
         Log.e(TAG, "-- onBackPressed --");
     }
 

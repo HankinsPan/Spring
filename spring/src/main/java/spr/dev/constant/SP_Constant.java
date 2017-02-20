@@ -30,4 +30,13 @@ public class SP_Constant {
     public static final String CACHE_INFO_SIGNNAME = "cache_info_signname";
 
     public static final String CACHE_INFO_BG = "cache_info_bg";
+
+    /**
+     * 默认详情图片高
+     */
+    public static final int DETAIL_HIGH = 100;
+    /**
+     * 默认详情图片宽
+     */
+    public static final int DETAIL_WIDTH = 100;
 }
