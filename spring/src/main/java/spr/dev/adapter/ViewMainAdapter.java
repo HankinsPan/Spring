@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import spr.dev.view.framelayout.PageFragment;
+import spr.dev.view.framelayout.PublishFragment;
 
 /**
  * Created by hanki on 2017/2/16.
@@ -23,7 +24,20 @@ public class ViewMainAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1);
+//        return PageFragment.newInstance(position + 1);
+
+        switch (position) {
+            case 0:
+                return PageFragment.newInstance(1);
+
+            case 1:
+            case 2:
+                PublishFragment publishFragment = new PublishFragment();
+                return publishFragment;
+
+        }
+
+        return null;
     }
 
     @Override

@@ -100,5 +100,18 @@
     <color name="colorBtnSingIn">#24e058</color>
     <color name="colorLigin">#3498db</color>
 
+    <color name="colorPink">#FF5722</color>
+    <color name="colorDark1">#305066</color>
+    <color name="colorDark2">#285171</color>
+    <color name="colorDark3">#08415a</color>
+    <color name="colorDark4">#093d5a</color>
+    <color name="colorDark5">#353241</color>
+    <color name="colorDark6">#040b27</color>
+    <color name="colorDark7">#262a3b</color>
+    <color name="colorDark8">#2a213f</color>
+    <color name="colorDark9">#2e2e2e</color>
+
+
+
 
 </resources>

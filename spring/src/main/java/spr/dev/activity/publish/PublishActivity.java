@@ -106,6 +106,7 @@ public class PublishActivity extends AppCompatActivity
         return options;
     }
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -273,7 +274,6 @@ public class PublishActivity extends AppCompatActivity
 
     }
 
-
     private void showOptionsDialog() {
         String[] items = new String[]{"拍照", "选择本地图片"};
 
@@ -304,11 +304,6 @@ public class PublishActivity extends AppCompatActivity
     }
 
     public void pickImageFromAlbum() {
-//        Intent intent = new Intent();
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        intent.setType("image/*");
-//        startActivityForResult(intent, 111);
-
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_PICK);
         intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -340,31 +335,6 @@ public class PublishActivity extends AppCompatActivity
                 }
                 break;
 
-//            case TAKE_PHOTO_REQUEST_ONE:
-//                if (resultCode == RESULT_CANCELED) {
-//                    delteImageUri(PublishActivity.this, imageUri);
-//                    ShowToast.ColorToast(PublishActivity.this, "点击取消  拍照", 1500);
-//                    return;
-//                }
-//                try {
-//                    //如果拍照图片过大会无法显示
-//                    Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-//                    imgPubAdd.setImageBitmap(bitmap1);
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//                break;
-//
-//            case TAKE_PHOTO_REQUEST_TWO:
-//                if (resultCode == RESULT_CANCELED) {
-//                    delteImageUri(PublishActivity.this, imageUri);
-//                    return;
-//                }
-//                Bitmap photo = data.getParcelableExtra("data");
-//                imgPubAdd.setImageBitmap(photo);
-//                break;
-
             case TAKE_PHOTO_REQUEST_THREE:
                 if (resultCode == RESULT_CANCELED) {
                     ShowToast.ColorToast(PublishActivity.this, "点击取消从相册选择", 1500);
@@ -374,13 +344,14 @@ public class PublishActivity extends AppCompatActivity
                 Bitmap bitmap = BitmapFactory.decodeFile(imageUri.getPath(),
                         getOptions(imageUri.getPath()));
                 imgPubAdd.setImageBitmap(bitmap);
+
+                mImageBytes = Bitmap2Bytes(bitmap);
                 break;
 
             default:
                 break;
         }
     }
-
 
     public byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
@@ -392,6 +363,13 @@ public class PublishActivity extends AppCompatActivity
             byteBuffer.write(buffer, 0, len);
         }
         return byteBuffer.toByteArray();
+    }
+
+
+    public static byte[] Bitmap2Bytes(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 
 

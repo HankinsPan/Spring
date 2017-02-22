@@ -98,8 +98,11 @@ public class MainActivity extends AppCompatActivity
 
         ViewMainAdapter vpAdapter = new ViewMainAdapter(getSupportFragmentManager(), this);
         main_vp.setAdapter(vpAdapter);
-        main_vp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(toolbar_tab));
-        toolbar_tab.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(main_vp));
+        main_vp.addOnPageChangeListener(
+                new TabLayout.TabLayoutOnPageChangeListener(toolbar_tab));
+
+        toolbar_tab.setOnTabSelectedListener(
+                new TabLayout.ViewPagerOnTabSelectedListener(main_vp));
 
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar,
@@ -168,7 +171,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.float_btn:
                 Intent intent = new Intent(MainActivity.this, PublishActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.top_to_bottom_in, R.anim.bottom_to_top_out);
+                overridePendingTransition(
+                        R.anim.top_to_bottom_in,
+                        R.anim.bottom_to_top_out);
                 break;
 
             default:
