@@ -17,6 +17,9 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+
     <application
         android:name=".constant.MyLeanCloudApp"
         android:allowBackup="true"
@@ -64,6 +67,10 @@
 
         <activity
             android:name=".activity.publish.PublishActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".view.PhotoTest"
             android:screenOrientation="portrait"/>
 
 

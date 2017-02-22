@@ -14,6 +14,7 @@ import spr.dev.MainActivity;
 import spr.dev.R;
 import spr.dev.constant.SP_Constant;
 import spr.dev.util.SharedPreferencesUtil;
+import spr.dev.view.PhotoTest;
 
 /**
  * Created by hanki on 2017/1/20.
@@ -99,6 +100,10 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setClass(StartActivity.this, MainActivity.class);
             Log.e(TAG, "--- USER_ID is not empty,To MainActivity ---");
+
+//            intent.setClass(StartActivity.this, PhotoTest.class);
+//            Log.e(TAG, "--- USER_ID is not empty,To MainActivity ---");
+
             startActivity(intent);
             finish();
         }
