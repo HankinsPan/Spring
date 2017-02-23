@@ -79,7 +79,6 @@
                     android:textColor="@color/colorBg"
                     android:textColorHighlight="@color/colorBg"
                     android:textSize="16sp"
-                    android:text="15354872767"
                     />
 
             </android.support.design.widget.TextInputLayout>
