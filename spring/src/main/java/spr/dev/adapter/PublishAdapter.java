@@ -2,6 +2,7 @@ package spr.dev.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import spr.dev.R;
-import spr.dev.util.ShowToast;
+import spr.dev.activity.publish.PublishDetail;
 import spr.dev.view.RoundedTransformation;
 
 /**
@@ -44,7 +45,7 @@ public class PublishAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(PublishViewHolder holder, int position) {
+    public void onBindViewHolder(PublishViewHolder holder, final int position) {
         holder.pub_Title.setText((CharSequence) mList
                 .get(position).get("pub_title"));
 
@@ -65,7 +66,9 @@ public class PublishAdapter extends
         holder.pub_Item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowToast.ColorToast((Activity) mContext, "Card item be Click", 1500);
+                Intent intent = new Intent(mContext, PublishDetail.class);
+                intent.putExtra("springObjectId",mList.get(position).getObjectId());
+                mContext.startActivity(intent);
             }
         });
 

@@ -205,15 +205,16 @@
 
         <RelativeLayout
             android:id="@+id/rlt_add_photo"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             >
 
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:paddingTop="2dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/iv_add_image"
                 />
@@ -222,14 +223,14 @@
 
         <RelativeLayout
             android:id="@+id/rlt_add_video"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_toStartOf="@id/rlt_add_photo"
             >
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/iv_video"
                 />
@@ -238,14 +239,14 @@
 
         <RelativeLayout
             android:id="@+id/rlt_add_record"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_toStartOf="@id/rlt_add_video"
             >
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/iv_record"
                 />
@@ -254,14 +255,14 @@
 
         <RelativeLayout
             android:id="@+id/rlt_add_link"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_toStartOf="@id/rlt_add_record"
             >
 
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/iv_link"
                 />
@@ -270,14 +271,14 @@
 
         <RelativeLayout
             android:id="@+id/rlt_add_location"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_toStartOf="@id/rlt_add_link"
             >
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/ic_location"
                 />

@@ -31,6 +31,8 @@ public class ViewMainAdapter extends FragmentPagerAdapter {
                 return PageFragment.newInstance(1);
 
             case 1:
+                return PageFragment.newInstance(2);
+
             case 2:
                 PublishFragment publishFragment = new PublishFragment();
                 return publishFragment;

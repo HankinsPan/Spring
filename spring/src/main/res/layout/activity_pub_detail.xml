@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBg"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:popupTheme="?attr/popupTheme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <TextView
+            android:id="@+id/tv_pub_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:text="hankins"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <spr.dev.view.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginTop="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rlt_pub_head"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/toolbar"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_biaoqian"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/ic_bq"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="7dp"
+                    android:background="#1296db"/>
+
+                <TextView
+                    android:id="@+id/tv_pub_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_toEndOf="@id/iv_biaoqian"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="#FFF"
+                    android:textSize="19sp"
+                    android:text=""
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt_pub_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlt_pub_head"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/tv_pub_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textScaleX="1"
+                    android:textSize="16sp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt_pub_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlt_pub_content"
+                android:layout_margin="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_pub_detail_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </spr.dev.view.BounceScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBg"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rlt_pub_reply_edt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="5"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edt_reply_bg"
+                />
+
+            <EditText
+                android:id="@+id/edt_pub_reply"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:hint="请输入评论内容"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="#99000000"
+                android:textColorHint="#55333333"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textScaleX="1.0"
+                android:textSize="15sp"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rlt_pub_reply_send"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            >
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_send_bg"/>
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@mipmap/ic_reply"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

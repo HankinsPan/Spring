@@ -70,7 +70,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".view.PhotoTest"
+            android:name=".activity.publish.PublishDetail"
             android:screenOrientation="portrait"/>
 
 
