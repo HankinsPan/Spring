@@ -29,6 +29,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import spr.dev.activity.publish.PublishActivity;
+import spr.dev.activity.webview.Web_CSDN;
+import spr.dev.activity.webview.Web_Github;
+import spr.dev.activity.webview.Web_Jianshu;
+import spr.dev.activity.webview.Web_My;
+import spr.dev.activity.webview.Web_Segment;
+import spr.dev.activity.webview.Web_ThirdPary;
 import spr.dev.adapter.RollPageAdapter;
 import spr.dev.adapter.ViewMainAdapter;
 import spr.dev.util.ShowToast;
@@ -255,36 +261,37 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        String msg = "";
 
         switch (item.getItemId()) {
             case R.id.nav_github:
-                msg += "Github";
+                Intent githubIntent = new Intent(MainActivity.this, Web_Github.class);
+                startActivity(githubIntent);
                 break;
 
             case R.id.nav_csdn:
-                msg += "CSDN";
+                Intent csdnIntent = new Intent(MainActivity.this, Web_CSDN.class);
+                startActivity(csdnIntent);
                 break;
 
             case R.id.nav_jian:
-                msg += "简书";
+                Intent jianIntent = new Intent(MainActivity.this, Web_Jianshu.class);
+                startActivity(jianIntent);
                 break;
 
             case R.id.nav_sgement:
-                msg += "segmentfault";
+                Intent segIntent = new Intent(MainActivity.this, Web_Segment.class);
+                startActivity(segIntent);
                 break;
 
             case R.id.nav_others:
-                msg += "Third Part";
+                Intent otherIntent = new Intent(MainActivity.this, Web_ThirdPary.class);
+                startActivity(otherIntent);
                 break;
 
             case R.id.nav_dev:
-                msg += "Developer";
+                Intent devIntent = new Intent(MainActivity.this, Web_My.class);
+                startActivity(devIntent);
                 break;
-        }
-
-        if (!msg.equals("")) {
-            ShowToast.ColorToast(MainActivity.this, msg, 2000);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

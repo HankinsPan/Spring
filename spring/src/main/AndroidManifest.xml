@@ -17,8 +17,8 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:name=".constant.MyLeanCloudApp"
@@ -73,6 +73,35 @@
             android:name=".activity.publish.PublishDetail"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name=".activity.webview.Web_Github"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+
+        <activity
+            android:name=".activity.webview.Web_CSDN"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+
+        <activity
+            android:name=".activity.webview.Web_Jianshu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+
+        <activity
+            android:name=".activity.webview.Web_Segment"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+
+        <activity
+            android:name=".activity.webview.Web_ThirdPary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
+
+        <activity
+            android:name=".activity.webview.Web_My"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"/>
 
     </application>
 
