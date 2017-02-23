@@ -240,11 +240,11 @@ public class PublishActivity extends AppCompatActivity
 
         monIndLoading.setVisibility(View.VISIBLE);
         monIndLoading.setColors(new int[]{
-                Color.rgb(255, 255, 0),
-                Color.rgb(255, 0, 0),
-                Color.rgb(60, 120, 216),
-                Color.rgb(255, 0, 255),
-                Color.rgb(0, 255, 51)});
+                Color.rgb(45, 120,177),
+                Color.rgb(45, 120,177),
+                Color.rgb(45, 120,177),
+                Color.rgb(45, 120,177),
+                Color.rgb(45, 120,177)});
 
         AVObject spring_pub = new AVObject("Spring_Pub");
 

@@ -55,7 +55,7 @@ public class Web_Jianshu extends AppCompatActivity {
         webView.requestFocus();//触摸焦点起作用
         //设置允许js弹出alert
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.loadUrl("http://www.jianshu.com/users/b286ccbcfbb6/timeline");
+        webView.loadUrl("http://www.jianshu.com/u/b286ccbcfbb6");
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -76,11 +76,11 @@ public class Web_Jianshu extends AppCompatActivity {
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 monIndicator.setVisibility(View.VISIBLE);
                 monIndicator.setColors(new int[]{
-                        Color.rgb(255, 255, 0),
-                        Color.rgb(255, 0, 0),
-                        Color.rgb(60, 120, 216),
-                        Color.rgb(255, 0, 255),
-                        Color.rgb(0, 255, 51)});
+                        Color.rgb(45, 120,177),
+                        Color.rgb(45, 120,177),
+                        Color.rgb(45, 120,177),
+                        Color.rgb(45, 120,177),
+                        Color.rgb(45, 120,177)});
 
                 Log.e(TAG, "-- onPageStarted --");
 
